@@ -76,7 +76,7 @@ public class instructorController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        loggedinID = -9; // Reset Logged in ID
+        loggedinID = ""; // Reset Logged in ID
     }
 
 

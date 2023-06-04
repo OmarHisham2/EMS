@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -47,17 +48,25 @@ public class takeExamController implements Initializable {
     void TakeExam(ActionEvent event) throws IOException
     {
 
-        for(int i = 0; i < studentList.get(studentDX).StudentCourses.size(); i++)
+        for(int i = 0; i < availableCourses.size(); i++)
 
         {
             if (Objects.equals(registeredCourses_choiceBox.getValue(), availableCourses.get(i).getCourseName())) {
                 selectedCourseforExam = availableCourses.get(i).getCourseName();
                 selectedCourseforExamIDX = i;
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("examPage.fxml")));
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+                if (availableCourses.get(selectedCourseforExamIDX).getExams().size() == 0)
+                {
+                    label_proTip.setText("No Exam is available for this course.");
+                    label_proTip.setTextFill(Color.color(0.921, 0.1960, 0.270));
+                    break;
+                }
+                else {
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("examPage.fxml")));
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                }
             }
         }
 

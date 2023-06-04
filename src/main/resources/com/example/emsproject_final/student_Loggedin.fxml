@@ -42,6 +42,11 @@
                   <Font name="Calibri" size="15.0" />
                </font>
             </Button>
+            <Label fx:id="label_proTip2" layoutX="102.0" layoutY="335.0" prefHeight="25.0" prefWidth="557.0" text="Exam Finished! Please consult your instructor for your marks." textFill="#bbe88f" visible="false">
+               <font>
+                  <Font name="Lato Semibold" size="20.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

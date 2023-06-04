@@ -58,9 +58,9 @@ public class examController implements Initializable {
 
     private Stage stage;
 
-    ArrayList<Exam> exam = StudentCourses.get(selectedCourseforExamIDX).getExams();
+    ArrayList<Exam> exam = StudentCourses.get(0).getExams();
     boolean firstQ = false;
-    boolean examDone = false;
+    public static boolean examDone = false;
 
     public static int QCounter = 0;
     public static int ExamGrade = 0;
@@ -77,7 +77,9 @@ public class examController implements Initializable {
             }
 
 
-    public void checkAnswer(ActionEvent event) throws IOException {
+    public void checkAnswer(ActionEvent event) throws IOException
+
+    {
 
             if(Objects.equals(tf_Answer.getText(), exam.get(QCounter).correctAnswer) && !tf_Answer.getText().trim().isEmpty())
             {
@@ -101,7 +103,8 @@ public class examController implements Initializable {
 
             if(examDone)
             {
-                studentList.get(studentDX).setStudentGPA(((double) ExamGrade /QCounter));
+                studentList.get(studentDX).setStudentGPA(studentList.get(studentDX).getStudentGPA() + ((double) ExamGrade * 0.05 /QCounter));
+                QCounter = 0;
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("student_Loggedin.fxml")));
                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);

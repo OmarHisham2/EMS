@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -51,20 +52,23 @@ public class searchStudentResultController implements Initializable {
 
     public void setField()
     {
-        if(!(selectedStudentID < 0) )
+        boolean notFound = true;
+        if(!(selectedStudentID != "") )
         {
             for(int i =0; i < studentList.size(); i++)
             {
                 if( selectedStudentID == studentList.get(i).getStudentId()) {
+                    notFound = false;
                     tf_studentData.setText("Student's Name : " + studentList.get(i).getStudentName()
                             + "\n" + "Student's Email : " + studentList.get(i).getStudentEmail() + "\n"
                             + "Student's ID :  " + studentList.get(i).getStudentId() + "\n"
                             + "Student's GPA :  " + studentList.get(i).getStudentGPA() + "\n"
+                            + "Student's Registered Courses are : " + Arrays.toString(studentList.get(i).getRegisteredCourses()) + "\n"
                     );
                 }
             }
         }
-        else
+        if(notFound)
         {
             tf_studentData.setText("ID Not found.");
         }

@@ -35,7 +35,7 @@ public class searchStudentController {
 
     private Stage stage;
 
-    public static int selectedStudentID = -1;
+    public static String selectedStudentID = "";
     @FXML
     public void goBack(ActionEvent event) throws IOException
     {
@@ -55,7 +55,7 @@ public class searchStudentController {
             label_proTip.setTextFill(Color.color(0.921, 0.1960, 0.270));
         }
         else {
-            selectedStudentID = Integer.parseInt(tf_studentID.getText());
+            selectedStudentID = (tf_studentID.getText());
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("searchStudentResult.fxml")));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);

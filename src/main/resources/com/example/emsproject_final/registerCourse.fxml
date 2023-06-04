@@ -26,7 +26,7 @@
                   <Font name="Lato Semibold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="label_proTip" layoutX="194.0" layoutY="59.0" prefHeight="25.0" prefWidth="446.0" text="Please select the course you would like to register" textFill="#e5d59a">
+            <Label fx:id="label_proTip" layoutX="197.0" layoutY="59.0" prefHeight="35.0" prefWidth="447.0" text="Please select the course you would like to register" textFill="#e5d59a">
                <font>
                   <Font name="Lato Semibold" size="20.0" />
                </font>
@@ -37,6 +37,11 @@
                </font>
             </Button>
             <ChoiceBox fx:id="courses_choiceBox" layoutX="299.0" layoutY="190.0" prefHeight="25.0" prefWidth="242.0" />
+            <Label fx:id="label_proTip2" layoutX="21.0" layoutY="222.0" prefHeight="35.0" prefWidth="719.0" text="To add more courses, Revisit this section for an updated list of available courses!" textFill="#c96159" visible="false">
+               <font>
+                  <Font name="Lato Semibold" size="20.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

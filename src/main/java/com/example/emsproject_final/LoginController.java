@@ -36,7 +36,7 @@ public class LoginController {
 
     private Stage stage;
 
-    public static int loggedinID  = -9;
+    public static String loggedinID  = "";
     public static int studentDX  = -99;
 
 

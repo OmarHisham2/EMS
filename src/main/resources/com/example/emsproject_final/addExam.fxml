@@ -18,7 +18,7 @@
                   <Font name="Arial" size="15.0" />
                </font>
             </Button>
-            <Label layoutX="322.0" layoutY="14.0" text="Add Exam" textFill="WHITE">
+            <Label layoutX="251.0" layoutY="14.0" text="Add Exam Questions" textFill="WHITE">
                <font>
                   <Font name="Lato Semibold Italic" size="35.0" />
                </font>
@@ -33,7 +33,7 @@
                   <Font name="Lato Semibold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="label_proTip" layoutX="193.0" layoutY="59.0" prefHeight="25.0" prefWidth="438.0" text="Please select the course and questions to add" textFill="#e5d59a">
+            <Label fx:id="label_proTip" layoutX="199.0" layoutY="59.0" prefHeight="25.0" prefWidth="409.0" text="Please select the course and questions to add" textFill="#e5d59a">
                <font>
                   <Font name="Lato Semibold" size="20.0" />
                </font>

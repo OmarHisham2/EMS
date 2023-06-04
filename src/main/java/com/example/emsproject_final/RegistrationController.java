@@ -46,18 +46,21 @@ public class RegistrationController {
 
     public void Register(ActionEvent event) {
         boolean alreadyExists = false;
+        boolean allFilled = false;
 
         String student_Mail = tf_Email.getText().replaceAll("\\s+","");
         String student_ID = tf_studentID.getText().replaceAll("\\s+","");
 
 
-        if (tf_Name.getText().trim().isEmpty() || tf_Email.getText().trim().isEmpty() && tf_studentID.getText().trim().isEmpty()) {
+
+        if (tf_Name.getText().trim().isEmpty() || tf_Email.getText().trim().isEmpty() || tf_studentID.getText().trim().isEmpty()) {
             label_proTip.setText("Please enter all the student's details");
             label_proTip.setTextFill(Color.color(0.921, 0.1960, 0.270));
         }
         else {
+            allFilled = true;
             for (int i = 0; i < studentList.size(); i++) {
-                if (Objects.equals(studentList.get(i).getStudentId(), Integer.parseInt(student_ID)) || (Objects.equals(studentList.get(i).getStudentEmail(), (student_Mail)))) {
+                if (Objects.equals(studentList.get(i).getStudentId(), (student_ID)) || (Objects.equals(studentList.get(i).getStudentEmail(), (student_Mail)))) {
                     alreadyExists = true;
                     break;
                 }
@@ -68,13 +71,16 @@ public class RegistrationController {
             label_proTip.setText("User is already registered!");
             label_proTip.setTextFill(Color.color(0.921, 0.1960, 0.270));
         }
-        else {
-            Student student = new Student(Integer.parseInt(student_ID), tf_Name.getText(), student_Mail);
+         else if ( allFilled ){
+            Student student = new Student(student_ID, tf_Name.getText(), student_Mail);
             studentList.add(student);
-            System.out.println("Student Registered! AND HIS NAME IS !!!! : " + tf_Name.getText());
             label_proTip.setText("Student registered successfully!");
             label_proTip.setTextFill(Color.color(0.654, 0.8901, 0.603));
-
+        }
+        else
+        {
+            label_proTip.setText("Please enter all the student's details");
+            label_proTip.setTextFill(Color.color(0.921, 0.1960, 0.270));
         }
 }
 

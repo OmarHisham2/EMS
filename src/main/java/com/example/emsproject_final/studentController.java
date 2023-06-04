@@ -3,18 +3,23 @@ package com.example.emsproject_final;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 import static com.example.emsproject_final.LoginController.loggedinID;
+import static com.example.emsproject_final.examController.examDone;
 
-public class studentController {
+public class studentController implements Initializable {
 
     @FXML
     private Button button_RegisterCourse;
@@ -27,11 +32,15 @@ public class studentController {
 
     @FXML
     private Button button_Logout;
+    @FXML
+    private Label label_proTip2;
 
     private Scene scene;
     private Parent root;
 
     private Stage stage;
+
+
 
     public void loadTakeExam(ActionEvent event) throws IOException
     {
@@ -68,7 +77,16 @@ public class studentController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        loggedinID = -9; // Reset Logged in ID
+        loggedinID = ""; // Reset Logged in ID
     }
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if(examDone)
+        {
+            examDone = false;
+            label_proTip2.setVisible(true);
+        }
+    }
 }

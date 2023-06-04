@@ -1,9 +1,12 @@
 package com.example.emsproject_final;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Student {
     public static  int CourseCount;
-    private int StudentId;
+    private String StudentId;
     private String StudentName ;
     private String StudentEmail;
     private double StudentGPA;
@@ -15,14 +18,14 @@ public class Student {
     public Student() {
     }
 
-    public Student(int studentId, String studentName,String studentEmail) {
+    public Student(String studentId, String studentName,String studentEmail) {
         StudentId = studentId;
         StudentName = studentName;
         StudentEmail = studentEmail;
         StudentCourses = new ArrayList<>();
     }
 
-    public void setStudentId(int studentId) {
+    public void setStudentId(String studentId) {
         StudentId = studentId;
     }
 
@@ -37,7 +40,7 @@ public class Student {
             StudentGPA = 0;
     }
 
-    public int getStudentId() {
+    public String getStudentId() {
         return StudentId;
     }
 
@@ -84,5 +87,17 @@ public class Student {
 
     public void setStudentEmail(String studentEmail) {
         StudentEmail = studentEmail;
+    }
+
+    public String[] getRegisteredCourses()
+    {
+        String[] result = new String[StudentCourses.size()];
+
+        int i = 0;
+        for (Course obj : StudentCourses) {
+            result[i] = String.valueOf(obj.getCourseName());
+            i++;
+        }
+        return result;
     }
 }
