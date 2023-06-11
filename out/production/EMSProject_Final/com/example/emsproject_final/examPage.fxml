@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.emsproject_final.examController">
+   <children>
+      <AnchorPane prefHeight="430.0" prefWidth="760.0" style="-fx-background-color: #212121;">
+         <children>
+            <Button fx:id="button_submitAnswer" layoutX="470.0" layoutY="270.0" mnemonicParsing="false" onAction="#checkAnswer" prefHeight="45.0" prefWidth="138.0" style="-fx-background-radius: 15;" text="Submit Answer">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Label layoutX="360.0" layoutY="14.0" text="Exam" textFill="WHITE">
+               <font>
+                  <Font name="Lato Semibold Italic" size="35.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_Question" layoutX="14.0" layoutY="96.0" prefHeight="59.0" prefWidth="694.0" text="Question : How many ducks are sitting in a pond?" textFill="WHITE">
+               <font>
+                  <Font name="Lato Semibold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_proTip" layoutX="151.0" layoutY="59.0" prefHeight="25.0" prefWidth="500.0" text="Please Answer the following question in the box below" textFill="#e5d59a">
+               <font>
+                  <Font name="Lato Semibold" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="button_goBack" layoutX="14.0" layoutY="370.0" mnemonicParsing="false" onAction="#goBack" prefHeight="32.0" prefWidth="107.0" style="-fx-background-radius: 15;" text="Exit Exam">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <Label fx:id="label_Choice1" layoutX="14.0" layoutY="141.0" prefHeight="59.0" prefWidth="162.0" text="• Four" textFill="WHITE">
+               <font>
+                  <Font name="Lato Semibold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_Choice2" layoutX="14.0" layoutY="186.0" prefHeight="59.0" prefWidth="162.0" text="• Three" textFill="WHITE">
+               <font>
+                  <Font name="Lato Semibold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_Choice3" layoutX="14.0" layoutY="233.0" prefHeight="59.0" prefWidth="162.0" text="• Neil Armstrong" textFill="WHITE">
+               <font>
+                  <Font name="Lato Semibold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_Choice4" layoutX="14.0" layoutY="282.0" prefHeight="59.0" prefWidth="162.0" text="• Felix Kjelberg" textFill="WHITE">
+               <font>
+                  <Font name="Lato Semibold" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tf_Answer" layoutX="401.0" layoutY="211.0" prefHeight="45.0" prefWidth="276.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.emsproject_final.checkCourseContentController">
+   <children>
+      <AnchorPane prefHeight="430.0" prefWidth="760.0" style="-fx-background-color: #212121;">
+         <children>
+            <Label layoutX="221.0" layoutY="14.0" text="Check Course Content" textFill="WHITE">
+               <font>
+                  <Font name="Lato Semibold Italic" size="35.0" />
+               </font>
+            </Label>
+            <Button fx:id="button_goBack" layoutX="549.0" layoutY="360.0" mnemonicParsing="false" onAction="#goBack" prefHeight="45.0" prefWidth="138.0" style="-fx-background-radius: 15;" text="Back">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <TextArea fx:id="tf_CourseContent" editable="false" layoutX="22.0" layoutY="74.0" prefHeight="271.0" prefWidth="724.0" />
+            <Label layoutX="22.0" layoutY="360.0" text="Course : " textFill="WHITE">
+               <font>
+                  <Font name="Lato Semibold Italic" size="35.0" />
+               </font>
+            </Label>
+            <Button fx:id="button_CheckContent" layoutX="380.0" layoutY="360.0" mnemonicParsing="false" onAction="#checkContent" prefHeight="45.0" prefWidth="138.0" style="-fx-background-radius: 15;" text="Check">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Button>
+            <ChoiceBox fx:id="courses_choiceBox" layoutX="146.0" layoutY="370.0" prefWidth="150.0" />
+            <Label fx:id="label_proTip" layoutX="22.0" layoutY="27.0" textFill="#d75d5d">
+               <font>
+                  <Font name="Lato Semibold Italic" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>
