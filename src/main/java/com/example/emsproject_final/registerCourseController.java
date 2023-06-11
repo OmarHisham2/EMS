@@ -96,20 +96,28 @@ public class registerCourseController implements Initializable {
 
     @FXML
     void registerCourse(ActionEvent event) throws IOException {
+
+        boolean courseFound = false;
         for (int i = 0; i < availableCourses.size(); i++) {
             if (Objects.equals(courses_choiceBox.getValue(), availableCourses.get(i).getCourseName()) )
             {
-                studentList.get(studentDX).StudentCourses.add(availableCourses.get(i));
-                label_proTip.setText("Course registered successfully!,");
+                courseFound = true;
+                studentList.get(studentDX).registerCourse(studentDX,availableCourses.get(i),i);
+                label_proTip.setText("Course registered successfully!");
                 label_proTip.setTextFill(Color.color(0.654, 0.8901, 0.603));
-
                 button_registerCourse.setDisable(true);
                 label_proTip2.setVisible(true);
 
-
-
             }
         }
+
+        if(!courseFound)
+        {
+            label_proTip.setText("Select a valid course!");
+            label_proTip.setTextFill(Color.color(0.921, 0.1960, 0.270));
+        }
+
+
 
 
     }

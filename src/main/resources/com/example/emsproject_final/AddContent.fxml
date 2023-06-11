@@ -37,7 +37,7 @@
                         <Font name="Lato Semibold" size="20.0" />
                     </font>
                 </Label>
-            <ChoiceBox fx:id="course_choiceBox" layoutX="337.0" layoutY="97.0" prefWidth="150.0" style="-fx-background-color: black;" />
+            <ChoiceBox fx:id="course_choiceBox" layoutX="337.0" layoutY="97.0" prefWidth="150.0" style="-fx-background-color: white;" />
             <TextArea fx:id="tf_Content" layoutX="150.0" layoutY="143.0" prefHeight="204.0" prefWidth="576.0" promptText="Write course content here..." />
             <Button fx:id="button_goBack" layoutX="520.0" layoutY="358.0" mnemonicParsing="false" onAction="#goBack" prefHeight="45.0" prefWidth="138.0" style="-fx-background-radius: 15;" text="Back">
                <font>

@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -11,12 +12,12 @@
    <children>
       <AnchorPane prefHeight="430.0" prefWidth="760.0" style="-fx-background-color: #212121;">
          <children>
-            <Label layoutX="247.0" layoutY="215.0" text="Student ID" textFill="WHITE">
+            <Label layoutX="285.0" layoutY="215.0" text="ID" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Lato Semibold" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="button_register" layoutX="334.0" layoutY="275.0" mnemonicParsing="false" onAction="#Register" prefHeight="45.0" prefWidth="96.0" style="-fx-background-radius: 15;" text="Register">
+            <Button fx:id="button_register" layoutX="254.0" layoutY="325.0" mnemonicParsing="false" onAction="#Register" prefHeight="45.0" prefWidth="96.0" style="-fx-background-radius: 15;" text="Register">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
@@ -39,16 +40,22 @@
             </Label>
             <TextField fx:id="tf_Name" layoutX="368.0" layoutY="122.0" prefHeight="25.0" prefWidth="179.0" />
             <TextField fx:id="tf_Email" layoutX="368.0" layoutY="168.0" prefHeight="25.0" prefWidth="179.0" />
-            <Button fx:id="button_register1" layoutX="334.0" layoutY="347.0" mnemonicParsing="false" onAction="#goBack" prefHeight="45.0" prefWidth="96.0" style="-fx-background-radius: 15;" text="Back">
+            <Button fx:id="button_register1" layoutX="410.0" layoutY="325.0" mnemonicParsing="false" onAction="#goBack" prefHeight="45.0" prefWidth="96.0" style="-fx-background-radius: 15;" text="Back">
                <font>
                   <Font name="Arial" size="15.0" />
                </font>
             </Button>
-            <Label fx:id="label_proTip" layoutX="237.0" layoutY="59.0" prefHeight="25.0" prefWidth="386.0" text="Please enter the student's details" textFill="#e5d59a">
+            <Label fx:id="label_proTip" layoutX="237.0" layoutY="59.0" prefHeight="25.0" prefWidth="386.0" text="Please enter the person's details" textFill="#e5d59a">
                <font>
                   <Font name="Lato Semibold" size="20.0" />
                </font>
             </Label>
+            <Label layoutX="247.0" layoutY="260.0" text="Password" textFill="WHITE">
+               <font>
+                  <Font name="Lato Semibold" size="20.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="tf_Password" layoutX="368.0" layoutY="260.0" prefHeight="25.0" prefWidth="179.0" />
          </children>
       </AnchorPane>
    </children>

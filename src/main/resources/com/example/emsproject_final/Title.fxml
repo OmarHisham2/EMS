@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,18 +14,18 @@
    <children>
       <AnchorPane prefHeight="430.0" prefWidth="760.0" style="-fx-background-color: #212121;">
          <children>
-            <TextField fx:id="tf_ID" layoutX="275.0" layoutY="210.0" prefHeight="34.0" prefWidth="242.0" style="-fx-background-color: ffffff; -fx-border-radius: 60; -fx-background-radius: white; -fx-border-color: white;" />
-            <Button fx:id="button_toRegister" layoutX="326.0" layoutY="358.0" mnemonicParsing="false" onAction="#loadRegisterPage" prefHeight="44.0" prefWidth="140.0" style="-fx-alignment: center; -fx-border-radius: 30; -fx-border-color: #FFFFFF;" text="Register" textFill="#801515" textOverrun="CENTER_WORD_ELLIPSIS">
+            <Button fx:id="button_toRegister" layoutX="346.0" layoutY="348.0" mnemonicParsing="false" onAction="#loadRegisterPage" prefHeight="45.0" prefWidth="101.0" style="-fx-background-color: #c94f4f; -fx-background-radius: 50;" text="Register" textFill="WHITE">
                <font>
-                  <Font name="Arial Rounded MT Bold" size="15.0" />
+                  <Font name="Calibri" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="button_login" cache="true" contentDisplay="CENTER" layoutX="326.0" layoutY="295.0" mnemonicParsing="false" onAction="#Login" prefHeight="44.0" prefWidth="140.0" style="-fx-alignment: center; -fx-border-radius: 30; -fx-border-color: white;" text="Login" textFill="#801515" textOverrun="CENTER_WORD_ELLIPSIS">
+            <Button fx:id="button_login" layoutX="346.0" layoutY="288.0" mnemonicParsing="false" onAction="#Login" prefHeight="45.0" prefWidth="101.0" style="-fx-background-color: #4485a6; -fx-background-radius: 50;" text="Login" textFill="WHITE">
                <font>
-                  <Font name="Arial Rounded MT Bold" size="15.0" />
+                  <Font name="Calibri" size="15.0" />
                </font>
             </Button>
-            <Label fx:id="label_infoWrong" layoutX="559.0" layoutY="204.0" prefHeight="23.0" prefWidth="170.0" text="Please enter a valid ID" textFill="RED" visible="false" wrapText="true">
+            <TextField fx:id="tf_ID" layoutX="299.0" layoutY="187.0" prefHeight="34.0" prefWidth="242.0" style="-fx-background-color: ffffff; -fx-border-radius: 60; -fx-background-radius: white; -fx-border-color: white;" />
+            <Label fx:id="label_infoWrong" layoutX="558.0" layoutY="204.0" prefHeight="66.0" prefWidth="188.0" text="Please enter a valid ID and Password Combination" textFill="RED" visible="false" wrapText="true">
                <font>
                   <Font name="Calibri Bold" size="16.0" />
                </font>
@@ -34,16 +35,17 @@
                   <Image url="@logo-no-background.png" />
                </image>
             </ImageView>
-            <Label layoutX="196.0" layoutY="211.0" text="ID : " textFill="WHITE">
+            <Label layoutX="244.0" layoutY="188.0" text="ID : " textFill="WHITE">
                <font>
                   <Font name="Berlin Sans FB" size="30.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="370.0" text="Enter -1 to login as instructor" textFill="WHITE">
+            <Label layoutX="148.0" layoutY="240.0" text="Password  :" textFill="WHITE">
                <font>
-                  <Font name="Berlin Sans FB" size="19.0" />
+                  <Font name="Berlin Sans FB" size="30.0" />
                </font>
             </Label>
+            <PasswordField fx:id="tf_Password" layoutX="299.0" layoutY="239.0" prefHeight="34.0" prefWidth="242.0" />
          </children>
       </AnchorPane>
    </children>

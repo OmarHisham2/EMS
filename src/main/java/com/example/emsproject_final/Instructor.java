@@ -2,37 +2,47 @@ package com.example.emsproject_final;
 
 
 
+import java.util.ArrayList;
+
+import static com.example.emsproject_final.Course.availableCourses;
+
 public class Instructor {
-    private int InstructorId;
+    private String InstructorId;
     private String InstructorName ;
+
+    private String InstructorEmail;
+
+    private String InstructorPassword;
+
+    public static ArrayList<Instructor> instructorList = new ArrayList<Instructor>();
     Course course;
-    public Instructor() {
-    }
 
 
-    public Instructor(int instructorId, String instructorName, Course course) {
+
+    public Instructor(String instructorId, String instructorName, String instructorEmail, String instructorPassword) {
         InstructorId = instructorId;
         InstructorName = instructorName;
-        this.course = course;
+        InstructorEmail = instructorEmail;
+        InstructorPassword = instructorPassword;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
-    }
 
-    public Course getCourse() {
-        return course;
-    }
 
-    public void setInstructorId(int instructorId) {
-        InstructorId = instructorId;
+    public void setInstructorId(String instructorId) {
+        instructorId = instructorId;
     }
 
     public void setInstructorName(String instructorName) {
         InstructorName = instructorName;
     }
+    public void setInstructorEmail(String instructorEmail) {
+        InstructorEmail = instructorEmail;
+    }
+    public void setInstructorPassword(String instructorPassword) {
+        InstructorPassword = instructorPassword;
+    }
 
-    public int getInstructorId() {
+    public String getInstructorId() {
         return InstructorId;
     }
 
@@ -40,10 +50,14 @@ public class Instructor {
         return InstructorName;
     }
 
+    public String getInstructorPassword() { return InstructorPassword;}
+
+    public String getInstructorEmail() { return InstructorEmail; }
+
     public static  boolean AddContent (Course course , String content)
     {
             course.setContent(content);
-        return !course.getContent().isEmpty();
+        return !content.isEmpty();
     }
 
     public static boolean AddExam (Course course , Exam exam)
@@ -51,19 +65,30 @@ public class Instructor {
         course.addExam(exam);
         return !course.getExams().isEmpty();
     }
+    public static boolean addCourse(Course course)
+    {
+        boolean coursealreadyExists = false;
+        if(!course.getCourseName().isEmpty()) {
+            for (int i = 0; i < availableCourses.size(); i++) {
+                if (course.getCourseName().trim().equals(availableCourses.get(i).getCourseName()))
+                {
+                    coursealreadyExists = true;
+                    break;
+                }
+            }
 
-//    public void GetStudentInfo (Student student, int id, JTextField name,JTextField course,JTextField grade,JTextField gpa)
-//    {
-//        name.setText(student.getStudentName());
-//        String courses = " " ,garde = " ";
-//
-//        for (int i =0 ; i < student.StudentCourses.size(); i++)
-//        {
-//            courses +=  student.StudentCourses.get(i).getCourseName()+ "  ";
-//            garde+= student.StudentCourses.get(i).getGrade()+ "  ";
-//        }
-//        course.setText(courses);
-//        grade.setText(String.valueOf(garde));
-//        gpa.setText(String.valueOf(student.GenerateGPA()));
-//    }
+            if (!coursealreadyExists) {
+                availableCourses.add(course);
+                return true;
+            }
+        }
+        else
+        {
+            return false;
+        }
+        return false;
+
+    }
+
+
 }

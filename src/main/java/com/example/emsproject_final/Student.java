@@ -1,27 +1,33 @@
 package com.example.emsproject_final;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
-import java.util.stream.Collectors;
+
+import static com.example.emsproject_final.Course.availableCourses;
 
 public class Student {
     public static  int CourseCount;
     private String StudentId;
     private String StudentName ;
     private String StudentEmail;
+
+    private String StudentPassword;
     private double StudentGPA;
      public static ArrayList<Course> StudentCourses ;
 
     public static ArrayList<Student> studentList = new ArrayList<Student>();
 
 
-    public Student() {
+
+    public Student(String password) {
+        this.StudentPassword = password;
     }
 
-    public Student(String studentId, String studentName,String studentEmail) {
+    public Student(String studentId, String studentName, String studentEmail, String password) {
         StudentId = studentId;
         StudentName = studentName;
         StudentEmail = studentEmail;
+        this.StudentPassword = password;
         StudentCourses = new ArrayList<>();
     }
 
@@ -48,28 +54,20 @@ public class Student {
         return StudentName;
     }
 
+    public String getStudentPassword() {
+        return StudentPassword;
+    }
+
     public double getStudentGPA() {
         return StudentGPA;
     }
 
-    public boolean RegisteringCourse (Course course)
-    {
-//        if(this.StudentCourses.contains(course))
-//            JOptionPane.showMessageDialog(null, "This course is registered", "Student", JOptionPane.INFORMATION_MESSAGE);
-//        else
-//            this.StudentCourses.add(course);
 
-        return this.StudentCourses.contains(course);
-    }
-    public boolean TakingExam (Course course,double Grade)
+
+
+    public void registerCourse (int studentDX, Course Course, int CourseDX)
     {
-        CourseCount =  StudentCourses.indexOf(course);
-        StudentCourses.set(CourseCount ,course).setGrade(Grade);
-        StudentGPA += Grade ;
-        if (StudentCourses.contains(course))
-            return true;
-        else
-            return false;
+            studentList.get(studentDX).StudentCourses.add(availableCourses.get(CourseDX));
     }
 
     public boolean IsRegistered (Course Course)
@@ -99,5 +97,11 @@ public class Student {
             i++;
         }
         return result;
+    }
+
+    public boolean Answer(String Answer, int QCounter, int selectedCourse)
+    {
+        ArrayList<Exam> exam = StudentCourses.get(selectedCourse).getExams();
+        return Objects.equals(Answer, exam.get(QCounter).correctAnswer) && !Answer.isEmpty();
     }
 }

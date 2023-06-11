@@ -19,11 +19,11 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static com.example.emsproject_final.LoginController.loggedinID;
 import static com.example.emsproject_final.LoginController.studentDX;
 import static com.example.emsproject_final.Student.StudentCourses;
 import static com.example.emsproject_final.Student.studentList;
-import static com.example.emsproject_final.takeExamController.selectedCourseforExam;
-import static com.example.emsproject_final.takeExamController.selectedCourseforExamIDX;
+import static com.example.emsproject_final.takeExamController.*;
 
 public class examController implements Initializable {
 
@@ -58,12 +58,16 @@ public class examController implements Initializable {
 
     private Stage stage;
 
-    ArrayList<Exam> exam = StudentCourses.get(0).getExams();
+
+
+    ArrayList<Exam> exam = StudentCourses.get(StudentCourses.indexOf(targetCourse)).getExams();
     boolean firstQ = false;
     public static boolean examDone = false;
 
     public static int QCounter = 0;
     public static int ExamGrade = 0;
+
+    public static int nExamsTaken = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -80,13 +84,13 @@ public class examController implements Initializable {
     public void checkAnswer(ActionEvent event) throws IOException
 
     {
-
-            if(Objects.equals(tf_Answer.getText(), exam.get(QCounter).correctAnswer) && !tf_Answer.getText().trim().isEmpty())
+            Exam eController = new Exam();
+            if(studentList.get(studentDX).Answer(tf_Answer.getText(),QCounter,StudentCourses.indexOf(targetCourse)))
             {
                 label_proTip.setText("Question " + QCounter + " has been answered correctly!" );
                 label_proTip.setTextFill(Color.color(0.654, 0.8901, 0.603));
                 QCounter++;
-                ExamGrade+=10;
+                ExamGrade+=1;
                 // Good job!
                 updateQuestion();
 
@@ -96,15 +100,15 @@ public class examController implements Initializable {
                 label_proTip.setText("Question " + QCounter + " has been answered Incorrectly!");
                 label_proTip.setTextFill(Color.color(0.921, 0.1960, 0.270));
                 QCounter++;
-                ExamGrade-=10;
                 updateQuestion();
                 //Bad job :(
             }
 
             if(examDone)
             {
-                studentList.get(studentDX).setStudentGPA(studentList.get(studentDX).getStudentGPA() + ((double) ExamGrade * 0.05 /QCounter));
+                eController.calculateNewGPA(ExamGrade,QCounter,studentList.get(studentDX),nExamsTaken);
                 QCounter = 0;
+                nExamsTaken++;
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("student_Loggedin.fxml")));
                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);

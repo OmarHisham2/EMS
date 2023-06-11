@@ -8,12 +8,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
 
+import static com.example.emsproject_final.Instructor.instructorList;
 import static com.example.emsproject_final.Student.studentList;
 
 public class LoginController {
@@ -31,6 +33,8 @@ public class LoginController {
     @FXML
     private TextField tf_ID;
 
+    @FXML
+    private PasswordField tf_Password;
     private Scene scene;
     private Parent root;
 
@@ -42,19 +46,19 @@ public class LoginController {
 
     public void Login(ActionEvent event) throws IOException {
 
-        boolean found = false;
+        int found = 0;
 
        for (int i =0; i < studentList.size(); i++)
        {
-            if (Objects.equals(studentList.get(i).getStudentId(), Integer.parseInt(tf_ID.getText())))
+            if (Objects.equals(studentList.get(i).getStudentId(),tf_ID.getText()) && Objects.equals(studentList.get(i).getStudentPassword(),tf_Password.getText()))
             {
-                found = true;
+                found = 1;
                 studentDX = i;
                 break;
             }
        }
 
-       if (found)
+       if (found == 1)
        {
 
            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("student_Loggedin.fxml")));
@@ -65,7 +69,18 @@ public class LoginController {
            loggedinID = studentList.get(studentDX).getStudentId();
 
        }
-       else if (Objects.equals(tf_ID.getText(), "-1"))
+       else
+       {
+           for (int i =0; i < instructorList.size(); i++)
+           {
+               if (Objects.equals(instructorList.get(i).getInstructorId(),tf_ID.getText()) && Objects.equals(instructorList.get(i).getInstructorPassword(),tf_Password.getText()))
+               {
+                   found = 2;
+                   break;
+               }
+           }
+       }
+       if (found == 2)
        {
            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("instructor_Loggedin.fxml")));
            stage = (Stage)((Node)event.getSource()).getScene().getWindow();

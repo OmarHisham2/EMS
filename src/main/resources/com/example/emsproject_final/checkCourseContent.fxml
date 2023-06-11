@@ -34,6 +34,11 @@
                </font>
             </Button>
             <ChoiceBox fx:id="courses_choiceBox" layoutX="146.0" layoutY="370.0" prefWidth="150.0" />
+            <Label fx:id="label_proTip" layoutX="22.0" layoutY="27.0" textFill="#d75d5d">
+               <font>
+                  <Font name="Lato Semibold Italic" size="16.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

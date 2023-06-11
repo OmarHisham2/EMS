@@ -11,7 +11,9 @@ package com.example.emsproject_final;
         import javafx.scene.Scene;
         import javafx.scene.control.Button;
         import javafx.scene.control.ChoiceBox;
+        import javafx.scene.control.Label;
         import javafx.scene.control.TextArea;
+        import javafx.scene.paint.Color;
         import javafx.stage.Stage;
 
         import java.io.IOException;
@@ -29,6 +31,9 @@ public class checkCourseContentController implements Initializable {
 
     @FXML
     private Button button_goBack;
+
+    @FXML
+    private Label label_proTip;
 
     @FXML
     private ChoiceBox<String> courses_choiceBox;
@@ -67,10 +72,20 @@ public class checkCourseContentController implements Initializable {
 
     public void checkContent(ActionEvent event)
     {
+        boolean courseFound = false;
         for(int i = 0; i < availableCourses.size(); i++) {
             if (Objects.equals(courses_choiceBox.getValue(), availableCourses.get(i).getCourseName())) {
+                courseFound = true;
                 tf_CourseContent.setText(availableCourses.get(i).getContent());
+                label_proTip.setVisible(false);
             }
+        }
+
+        if(!courseFound)
+        {
+            label_proTip.setText("Select a valid course!");
+            label_proTip.setVisible(true);
+            label_proTip.setTextFill(Color.color(0.921, 0.1960, 0.270));
         }
 
 

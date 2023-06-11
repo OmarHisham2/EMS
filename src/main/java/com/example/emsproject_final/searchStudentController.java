@@ -49,6 +49,9 @@ public class searchStudentController {
     }
 
     public void sendID(ActionEvent event) throws IOException {
+
+
+
         if(tf_studentID.getText().trim().isEmpty())
         {
             label_proTip.setText("Please enter a student ID!");
@@ -62,6 +65,8 @@ public class searchStudentController {
             stage.setScene(scene);
             stage.show();
         }
+
+
     }
 
 }

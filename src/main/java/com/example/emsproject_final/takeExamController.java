@@ -44,20 +44,26 @@ public class takeExamController implements Initializable {
     public static String selectedCourseforExam;
     public static int selectedCourseforExamIDX;
 
+    public static Course targetCourse;
+
     @FXML
     void TakeExam(ActionEvent event) throws IOException
     {
 
+
+        boolean courseFound = false;
         for(int i = 0; i < availableCourses.size(); i++)
 
         {
             if (Objects.equals(registeredCourses_choiceBox.getValue(), availableCourses.get(i).getCourseName())) {
+                courseFound = true;
                 selectedCourseforExam = availableCourses.get(i).getCourseName();
+                 targetCourse = availableCourses.get(i);
                 selectedCourseforExamIDX = i;
                 if (availableCourses.get(selectedCourseforExamIDX).getExams().size() == 0)
                 {
                     label_proTip.setText("No Exam is available for this course.");
-                    label_proTip.setTextFill(Color.color(0.921, 0.1960, 0.270));
+                    label_proTip.setTextFill(Color.color(0.600, 0.1960, 0.270));
                     break;
                 }
                 else {
@@ -67,6 +73,12 @@ public class takeExamController implements Initializable {
                     stage.setScene(scene);
                     stage.show();
                 }
+            }
+
+            if(!courseFound)
+            {
+                label_proTip.setText("Select a valid course!");
+                label_proTip.setTextFill(Color.color(0.921, 0.1960, 0.270));
             }
         }
 

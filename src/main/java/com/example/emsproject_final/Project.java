@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.emsproject_final.Course.availableCourses;
+import static com.example.emsproject_final.Student.studentList;
 
 public class Project extends Application {
 
@@ -25,6 +26,18 @@ public class Project extends Application {
         availableCourses.add(c2);
         availableCourses.add(c3);
 
+//        Student s1 = new Student("1","omar@gmail.com","omar@gmail.com", "1");
+//        Student s2 = new Student("20P6484",	"felix",	"felix@hisham.com", "2");
+//        Student s3 = new Student("21qe","jaiden","jaidenrr@eng.asu.edu.eg", "3");
+//        Student s4 = new Student("441","jada","smith@will.com", "4");
+//        studentList.add(s1);
+//        studentList.add(s2);
+//        studentList.add(s3);
+//        studentList.add(s4);
+
+
+
+
     }
 
     @Override
@@ -34,7 +47,7 @@ public class Project extends Application {
         stage.setResizable(false);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Title.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 760, 430);
-        stage.setTitle("Examination Management System");
+        stage.setTitle("Learning Management System");
         stage.setScene(scene);
         stage.show();
     }

@@ -52,12 +52,17 @@ public class searchStudentResultController implements Initializable {
 
     public void setField()
     {
+
+
+        long start = System.nanoTime();
+
+
         boolean notFound = true;
-        if(!(selectedStudentID != "") )
+        if(!(Objects.equals(selectedStudentID, "")) )
         {
             for(int i =0; i < studentList.size(); i++)
             {
-                if( selectedStudentID == studentList.get(i).getStudentId()) {
+                if(Objects.equals(selectedStudentID, studentList.get(i).getStudentId())) {
                     notFound = false;
                     tf_studentData.setText("Student's Name : " + studentList.get(i).getStudentName()
                             + "\n" + "Student's Email : " + studentList.get(i).getStudentEmail() + "\n"
@@ -72,6 +77,11 @@ public class searchStudentResultController implements Initializable {
         {
             tf_studentData.setText("ID Not found.");
         }
+
+
+        long end = System.nanoTime();
+        long microseconds = (end - start) / 1000;
+        System.out.println("Time taken to get Student's data : " + microseconds + " microseconds");
 
     }
 

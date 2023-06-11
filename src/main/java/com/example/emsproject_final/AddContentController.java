@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -59,13 +61,29 @@ public class AddContentController implements Initializable {
     @FXML
     void addContent(ActionEvent event)
     {
+
+        long start = System.nanoTime();
+
+        boolean courseFound = false;
         for(int i = 0; i < availableCourses.size(); i++) {
-            if (Objects.equals(course_choiceBox.getValue(), availableCourses.get(i).getCourseName())) {
+            if (Objects.equals(course_choiceBox.getValue(), availableCourses.get(i).getCourseName()))
+            {
+                courseFound = true;
                 availableCourses.get(i).setContent(tf_Content.getText());
                 label_proTip.setText("Content added successfully!");
                 label_proTip.setTextFill(Color.color(0.654, 0.8901, 0.603));
             }
         }
+        if (!courseFound)
+        {
+            label_proTip.setText("Select a valid course!");
+            label_proTip.setTextFill(Color.color(0.921, 0.1960, 0.270));
+
+        }
+
+        long end = System.nanoTime();
+        long microseconds = (end - start) / 1000;
+        System.out.println("Time taken to add content : " + microseconds + " microseconds");
 
 
     }
